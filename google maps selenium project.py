@@ -1,3 +1,4 @@
+#@OnkarChavan
 from selenium import webdriver
 from time import sleep
 
@@ -7,17 +8,15 @@ driver.get("https://www.google.co.in/maps")
 sleep(3)
 
 def searchplace():
-                place=driver.find_element_by_class_name("tactile-searchbox-input")
-                place.send_keys("Bangalore")
-                submit=driver.find_element_by_xpath("/html/body/jsl/div[3]/div[9]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/button")
-                submit.click()
-searchplace()
+    place=driver.find_element_by_class_name("tactile-searchbox-input")
+    place.send_keys("Bangalore")
+    submit=driver.find_element_by_xpath("/html/body/jsl/div[3]/div[9]/div[3]/div[1]/div[1]/div[1]/div[2]/div[1]/button")
+    submit.click()
 
 def directions():
-                sleep(5)
-                directions=driver.find_element_by_xpath("/html/body/jsl/div[3]/div[9]/div[8]/div/div[1]/div/div/div[4]/div[1]/div/button/img")
-                directions.click()
-directions()
+    sleep(5)
+    directions=driver.find_element_by_xpath("/html/body/jsl/div[3]/div[9]/div[8]/div/div[1]/div/div/div[4]/div[1]/div/button/img")
+    directions.click()
 
 def find():
     sleep(5)
@@ -31,14 +30,14 @@ def find():
 find()
 
 def kilometers():
-                sleep(4)
-                totalkilometers=driver.find_element_by_xpath("/html/body/jsl/div[3]/div[9]/div[8]/div/div[1]/div/div/div[5]/div[2]/div/div[1]/div[1]/div[2]/div")
-                print("totalkilometers:",totalkilometers.text)
-                sleep(3)
+    sleep(4)
+    totalkilometers=driver.find_element_by_xpath("/html/body/jsl/div[3]/div[9]/div[8]/div/div[1]/div/div/div[5]/div[2]/div/div[1]/div[1]/div[2]/div")
+    bustime = driver.find_element_by_xpath("/html/body/jsl/div[3]/div[9]/div[8]/div/div[1]/div/div/div[5]/div[1]/div/div[2]/div[1]/div")
+    print("totalkilometers:",totalkilometers.text)
+    print("Bus time :",bustime.text)
+    sleep(3)
+    driver.quit()
 
+searchplace()
+directions()
 kilometers()
-
-
-
-
-
